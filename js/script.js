@@ -26,6 +26,8 @@ function playRound(playerSelection, computerSelection)
 {
     let result;
 
+    playerSelection = prompt("Choose: Rock/Paper/Scissor", "");
+
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
@@ -34,13 +36,13 @@ function playRound(playerSelection, computerSelection)
         switch (computerSelection)
         {
             case "rock":
-                result = "It's a Draw! Rock against Rock!";
+                result = "0 It's a Draw! Rock against Rock!";
                 break;
             case "paper":
-                result = "You Lose! Paper beats Rock!";
+                result = "-1 You Lose! Paper beats Rock!";
                 break;
             case "scissor":
-                result = "You Win! Rock beats Scissor!";
+                result = "+1 You Win! Rock beats Scissor!";
                 break;
             default:
                 alert("Faulty input");
@@ -51,13 +53,13 @@ function playRound(playerSelection, computerSelection)
         switch (computerSelection)
         {
             case "rock":
-                result = "You Win! Paper beats Rock!";
+                result = "+1 You Win! Paper beats Rock!";
                 break;
             case "paper":
-                result = "It's a Draw! Paper against Paper!";
+                result = "0 It's a Draw! Paper against Paper!";
                 break;
             case "scissor":
-                result = "You Lose! Scissor beats Paper!";
+                result = "-1 You Lose! Scissor beats Paper!";
                 break;
             default:
                 alert("Faulty input");
@@ -68,18 +70,50 @@ function playRound(playerSelection, computerSelection)
         switch (computerSelection)
         {
             case "rock":
-                result = "You Lose! Rock beats Scissor!";
+                result = "-1 You Lose! Rock beats Scissor!";
                 break;
             case "paper":
-                result = "You Win! Scissor beats Paper!";
+                result = "+1 You Win! Scissor beats Paper!";
                 break;
             case "scissor":
-                result = "It's a Draw! Scissor against Scissor";
+                result = "0 It's a Draw! Scissor against Scissor";
                 break;
             default:
                 alert("Faulty input");
         }
     }
     return result;
+}
+
+function game()
+{
+    let computerScore = 0;
+    let playerScore = 0;
+    let roundResult;
+    let firstChar;
+
+    for (let i = 0; i < 5; i++)
+    {
+        roundResult = playRound(playerSelection, computerSelection = getComputerChoice());
+        console.log(roundResult);
+        firstChar = roundResult.charAt(0);
+        if (firstChar === "+")
+        {
+            playerScore += 1;
+        }
+        else if (firstChar === "-")
+        {
+            computerScore += 1;
+        }
+    }
+    console.log("Your Score: " + playerScore);
+    console.log("Computer Score: " + computerScore);
+
+    if(playerScore > computerScore)
+        console.log("You won the game!");
+    else if(computerScore > playerScore)
+        console.log("You lost the game!")
+    else
+        console.log("The game is a draw!");
 }
 
