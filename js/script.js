@@ -26,9 +26,13 @@ function playRound(playerSelection, computerSelection)
 {
     let result;
 
-    playerSelection = prompt("Choose: Rock/Paper/Scissor", "");
-
-    playerSelection = playerSelection.toLowerCase();
+    while (1)
+    {
+        playerSelection = prompt("Choose: Rock/Paper/Scissor", "");
+        playerSelection = playerSelection.toLowerCase();
+        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissor")
+            break;
+    }
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === "rock")
