@@ -7,11 +7,30 @@
     <title>Rock Paper Scissor game</title>
 </head>
 <body>
+    <button id="rockBtn">Rock</button>
+    <button id="paperBtn">Paper</button>
+    <button id="scissorBtn">scissor</button>
     <script>
         let playerSelection;
         let computerSelection;
 
-        game();
+        const rockBtn = document.querySelector('#rockBtn');
+        rockBtn.addEventListener("click", () => {
+            playerSelection = "rock";
+            console.log(playRound(playerSelection, computerSelection = getComputerChoice()));
+        });
+
+        const paperBtn = document.querySelector("#paperBtn");
+        paperBtn.addEventListener("click", () => {
+            playerSelection = "paper";
+            console.log(playRound(playerSelection, computerSelection = getComputerChoice()));
+        });
+
+        const scissorBtn = document.querySelector("#scissorBtn");
+        scissorBtn.addEventListener("click", () => {
+            playerSelection = "scissor";
+            console.log(playRound(playerSelection, computerSelection = getComputerChoice()));
+        });
     </script>
 </body>
 </html>
