@@ -22,17 +22,11 @@ function getComputerChoice()
     return choice;
 }
 
+
+
 function playRound(playerSelection, computerSelection)
 {
     let result;
-
-    while (1)
-    {
-        playerSelection = prompt("Choose: Rock/Paper/Scissor", "");
-        playerSelection = playerSelection.toLowerCase();
-        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissor")
-            break;
-    }
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === "rock")
@@ -96,20 +90,19 @@ function game()
     let roundResult;
     let firstChar;
 
-    for (let i = 0; i < 5; i++)
+   
+    roundResult = playRound(playerSelection, computerSelection = getComputerChoice());
+    console.log(roundResult);
+    firstChar = roundResult.charAt(0);
+    if (firstChar === "+")
     {
-        roundResult = playRound(playerSelection, computerSelection = getComputerChoice());
-        console.log(roundResult);
-        firstChar = roundResult.charAt(0);
-        if (firstChar === "+")
-        {
-            playerScore += 1;
-        }
-        else if (firstChar === "-")
-        {
-            computerScore += 1;
-        }
+        playerScore += 1;
     }
+    else if (firstChar === "-")
+    {
+        computerScore += 1;
+    }
+
     console.log("Your Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
 
