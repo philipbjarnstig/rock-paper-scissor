@@ -10,26 +10,35 @@
     <button id="rockBtn">Rock</button>
     <button id="paperBtn">Paper</button>
     <button id="scissorBtn">scissor</button>
+
+    <div id="resultContainer">
+        <h1>Game Result</h1>
+        <p id="roundResult"></p>
+        <p id="playerScore"></p>
+        <p id="computerScore"></p>
+        <p id="gameResult"></p>
+    </div>
+
     <script>
         let playerSelection;
         let computerSelection;
+        let computerScore = 0;
+        let playerScore = 0;
+        let roundCount = 0;
 
         const rockBtn = document.querySelector('#rockBtn');
         rockBtn.addEventListener("click", () => {
-            playerSelection = "rock";
-            console.log(playRound(playerSelection, computerSelection = getComputerChoice()));
+            game("rock");
         });
 
         const paperBtn = document.querySelector("#paperBtn");
         paperBtn.addEventListener("click", () => {
-            playerSelection = "paper";
-            console.log(playRound(playerSelection, computerSelection = getComputerChoice()));
+            game("paper");
         });
 
         const scissorBtn = document.querySelector("#scissorBtn");
         scissorBtn.addEventListener("click", () => {
-            playerSelection = "scissor";
-            console.log(playRound(playerSelection, computerSelection = getComputerChoice()));
+            game("scissor");
         });
     </script>
 </body>
