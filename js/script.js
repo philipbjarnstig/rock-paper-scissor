@@ -22,8 +22,6 @@ function getComputerChoice()
     return choice;
 }
 
-
-
 function playRound(playerSelection, computerSelection)
 {
     let result;
@@ -83,17 +81,18 @@ function playRound(playerSelection, computerSelection)
     return result;
 }
 
-function game()
+function game(playerSelection)
 {
-    let computerScore = 0;
-    let playerScore = 0;
-    let roundResult;
     let firstChar;
 
-   
-    roundResult = playRound(playerSelection, computerSelection = getComputerChoice());
+    const roundResult = document.querySelector("#roundResult");
+    const gameResult = document.querySelector("#gameResult");
+    let pScore = document.querySelector("#playerScore");
+    let cScore = document.querySelector("#computerScore");
+
+    roundResult.textContent = playRound(playerSelection, computerSelection = getComputerChoice());
     console.log(roundResult);
-    firstChar = roundResult.charAt(0);
+    firstChar = roundResult.textContent.charAt(0);
     if (firstChar === "+")
     {
         playerScore += 1;
@@ -103,14 +102,19 @@ function game()
         computerScore += 1;
     }
 
-    console.log("Your Score: " + playerScore);
-    console.log("Computer Score: " + computerScore);
+    pScore.textContent = "Your Score: " + playerScore;
+    cScore.textContent = "Computer Score: " + computerScore;
 
-    if(playerScore > computerScore)
-        console.log("You won the game!");
-    else if(computerScore > playerScore)
-        console.log("You lost the game!")
-    else
-        console.log("The game is a draw!");
+    roundCount++;
+
+    if(roundCount === 5)
+    {
+        if(playerScore > computerScore)
+            gameResult.textContent = "You won the game!";
+        else if(computerScore > playerScore)
+            gameResult.textContent = "You lost the game!";
+        else
+            gameResult.textContent = "The game is a draw!";
+    }
 }
 
